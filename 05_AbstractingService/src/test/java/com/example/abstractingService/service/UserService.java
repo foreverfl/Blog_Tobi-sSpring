@@ -12,7 +12,6 @@ import com.example.abstractingService.dao.UserDao;
 import com.example.abstractingService.entities.Level;
 import com.example.abstractingService.entities.User;
 
-
 public class UserService {
 	public static final int MIN_LOGCOUNT_FOR_SILVER = 50;
 	public static final int MIN_RECCOMEND_FOR_GOLD = 30;
@@ -72,9 +71,9 @@ public class UserService {
 	private void sendUpgradeEMail(User user) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(user.getEmail());
-		mailMessage.setFrom("useradmin@ksug.org");
-		mailMessage.setSubject("Upgrade �ȳ�");
-		mailMessage.setText("����ڴ��� ����� " + user.getLevel().name());
+		mailMessage.setFrom("admin@tarotaro90.com");
+		mailMessage.setSubject("업그레이드 안내");
+		mailMessage.setText("사용자의 등급이 " + user.getLevel().name());
 
 		this.mailSender.send(mailMessage);
 	}

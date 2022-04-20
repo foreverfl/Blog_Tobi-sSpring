@@ -2,8 +2,6 @@ package com.example.abstractingService.service;
 
 import static com.example.abstractingService.service.UserService.MIN_LOGCOUNT_FOR_SILVER;
 import static com.example.abstractingService.service.UserService.MIN_RECCOMEND_FOR_GOLD;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -39,15 +37,19 @@ public class UserServiceTest {
 	@Autowired
 	PlatformTransactionManager transactionManager;
 
-	List<User> users; // test fixture
+	List<User> users;
 
 	@BeforeEach
 	public void setUp() {
 		users = Arrays.asList(
-				new User("mogumogu1", "taro1", "p1", "mogumogu1@tarotaro90.com", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER - 1, 0),
-				new User("mogumogu2", "taro2", "p2", "mogumogu2@tarotaro90.com", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER, 0),
-				new User("mogumogu3", "taro3", "p3", "mogumogu3@tarotaro90.com", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD - 1),
-				new User("mogumogu4", "taro4", "p4", "mogumogu4@tarotaro90.com", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD),
+				new User("mogumogu1", "taro1", "p1", "mogumogu1@tarotaro90.com", Level.BASIC,
+						MIN_LOGCOUNT_FOR_SILVER - 1, 0),
+				new User("mogumogu2", "taro2", "p2", "mogumogu2@tarotaro90.com", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER,
+						0),
+				new User("mogumogu3", "taro3", "p3", "mogumogu3@tarotaro90.com", Level.SILVER, 60,
+						MIN_RECCOMEND_FOR_GOLD - 1),
+				new User("mogumogu4", "taro4", "p4", "mogumogu4@tarotaro90.com", Level.SILVER, 60,
+						MIN_RECCOMEND_FOR_GOLD),
 				new User("mogumogu5", "taro5", "p5", "mogumogu5@tarotaro90.com", Level.GOLD, 100, Integer.MAX_VALUE));
 	}
 
