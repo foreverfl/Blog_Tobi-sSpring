@@ -19,13 +19,12 @@ public class PointcutExpressionTest {
 
 		tagetClassPointcutMatches("execution(* com.example.AOP.pointcutExpression.Target.*(..))", true, true, true,
 				true, true, false);
-		tagetClassPointcutMatches("execution(* com.example.AOP.pointcutExpression.*.*(..))", true, true, true,
-				true, true, true);
-		tagetClassPointcutMatches("execution(* com.example.AOP.pointcutExpression..*.*(..))", true, true, true,
-				true, true, true);
+		tagetClassPointcutMatches("execution(* com.example.AOP.pointcutExpression.*.*(..))", true, true, true, true,
+				true, true);
+		tagetClassPointcutMatches("execution(* com.example.AOP.pointcutExpression..*.*(..))", true, true, true, true,
+				true, true);
 		tagetClassPointcutMatches("execution(* com..*.*(..))", true, true, true, true, true, true);
 
-		tagetClassPointcutMatches("execution(* com..*.*(..))", false, false, false, false, false, false);
 		tagetClassPointcutMatches("execution(* *..Target.*(..))", true, true, true, true, true, false);
 		tagetClassPointcutMatches("execution(* *..Tar*.*(..))", true, true, true, true, true, false);
 		tagetClassPointcutMatches("execution(* *..*get.*(..))", true, true, true, true, true, false);
