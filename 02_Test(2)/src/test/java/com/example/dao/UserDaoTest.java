@@ -30,20 +30,20 @@ public class UserDaoTest {
 	private User user2;
 	private User user3;
 
-	@BeforeEach // Must have a void return type.
+	@BeforeEach
 	public void setUp() {
 		this.dao = this.context.getBean("userDao", UserDao.class);
 
-		this.user1 = new User("mogumogu1", "타로1", "1234");
-		this.user2 = new User("mogumogu2", "타로2", "1234");
-		this.user3 = new User("mogumogu3", "타로3", "1234");
+		this.user1 = new User("mogumogu1", "Taro1", "1234");
+		this.user2 = new User("mogumogu2", "Taro2", "1234");
+		this.user3 = new User("mogumogu3", "Taro3", "1234");
 
 	}
 
 	@Test
 	public void andAndGet() throws SQLException {
 		dao.deleteAll();
-		assertEquals(dao.getCount(), 0); // Asserts that expected and actual are equal.
+		assertEquals(dao.getCount(), 0);
 
 		dao.add(user1);
 		dao.add(user2);

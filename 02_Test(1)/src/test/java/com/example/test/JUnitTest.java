@@ -42,4 +42,13 @@ public class JUnitTest {
 		contextObject = this.context;
 	}
 
+	@Test
+	public void test3() {
+		assertTrue(!testObjects.contains(this));
+		testObjects.add(this);
+
+		assertTrue(contextObject == this.context);
+		contextObject = this.context;
+	}
+
 }

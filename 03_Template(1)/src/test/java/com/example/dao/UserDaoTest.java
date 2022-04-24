@@ -17,7 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.example.entites.User;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "test-applicationContext.xml")
+@ContextConfiguration(locations = "../test-applicationContext.xml")
 public class UserDaoTest {
 	@Autowired
 	private UserDao dao;
