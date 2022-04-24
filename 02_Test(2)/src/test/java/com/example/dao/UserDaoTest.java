@@ -18,11 +18,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.example.entities.User;
 
 @ExtendWith(SpringExtension.class)
-// Integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
-@ContextConfiguration(locations = "test-applicationContext.xml")
-// Defines class-level metadata that is used to determine how to load and configure an ApplicationContext for integration tests
+@ContextConfiguration(locations = "../test-applicationContext.xml")
 @DirtiesContext
-// Should therefore be closed and removed from the context cache.
 public class UserDaoTest {
 	@Autowired
 	ApplicationContext context;
@@ -69,8 +66,6 @@ public class UserDaoTest {
 		assertThrows(EmptyResultDataAccessException.class, () -> {
 			dao.get("unkown_id");
 		});
-		// Asserts that execution of the supplied executable throws an exception of the
-		// expectedType and returns the exception.
 	}
 
 	@Test

@@ -1,6 +1,5 @@
-package com.example.Test;
+package com.example.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -16,11 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-//Integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
-@ContextConfiguration(locations = "junit.xml")
-//Defines class-level metadata that is used to determine how to load and configure an ApplicationContext for integration tests
+@ContextConfiguration(locations = "../junit.xml")
 @DirtiesContext
-//Should therefore be closed and removed from the context cache.
 public class JUnitTest {
 	@Autowired
 	ApplicationContext context;
@@ -30,19 +26,20 @@ public class JUnitTest {
 
 	@Test
 	public void test1() {
-		assertThat(!testObjects.contains(this));
+		assertTrue(!testObjects.contains(this));
 		testObjects.add(this);
 
-		assertEquals(contextObject == null || contextObject == this.context, true);
+		assertEquals(contextObject == null, true);
 		contextObject = this.context;
 	}
 
 	@Test
 	public void test2() {
-		assertThat(!testObjects.contains(this));
+		assertTrue(!testObjects.contains(this));
 		testObjects.add(this);
 
-		assertTrue(contextObject == null || contextObject == this.context);
+		assertTrue(contextObject == this.context);
 		contextObject = this.context;
 	}
+
 }
