@@ -60,8 +60,6 @@ public class UserDaoTest {
 		assertThrows(EmptyResultDataAccessException.class, () -> {
 			dao.get("unkown_id");
 		});
-		// Asserts that execution of the supplied executable throws an exception of the
-		// expectedType and returns the exception.
 	}
 
 	@Test

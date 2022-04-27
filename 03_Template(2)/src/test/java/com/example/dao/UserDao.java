@@ -29,25 +29,25 @@ public class UserDao {
 	};
 
 	public void add(final User user) {
-		this.jdbcTemplate.update("insert into users(id, name, password) values(?,?,?)", user.getId(), user.getName(),
+		this.jdbcTemplate.update("insert into users_01(id, name, password) values(?,?,?)", user.getId(), user.getName(),
 				user.getPassword());
 	}
 
 	public User get(String id) {
-		return this.jdbcTemplate.queryForObject("select * from users where id = ?", this.userMapper,
+		return this.jdbcTemplate.queryForObject("select * from users_01 where id = ?", this.userMapper,
 				new Object[] { id });
 	}
 
 	public void deleteAll() {
-		this.jdbcTemplate.update("delete from users");
+		this.jdbcTemplate.update("delete from users_01");
 	}
 
 	public int getCount() {
-		return this.jdbcTemplate.queryForObject("select count(*) from users", Integer.class);
+		return this.jdbcTemplate.queryForObject("select count(*) from users_01", Integer.class);
 	}
 
 	public List<User> getAll() {
-		return this.jdbcTemplate.query("select * from users order by id", this.userMapper);
+		return this.jdbcTemplate.query("select * from users_01 order by id", this.userMapper);
 	}
 
 }
